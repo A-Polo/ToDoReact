@@ -1,6 +1,7 @@
 import React from 'react';
 import ListCreate from './ListCreate';
 import TodoList from './TodoList';
+import Header from './Header/Header';
 
 class App extends React.Component {
   constructor(props) {
@@ -47,15 +48,18 @@ class App extends React.Component {
 
   render() {
     return (
-      <div className="container">
-        <ListCreate handleTextChange={this.handleTextChange}
-                    value={this.state.text}
-                    handleAddItem={this.handleAddItem}
-                    disabled={!this.state.text}
-                    itemsLength={this.state.items.length + 1}
-        />
-        <TodoList items={this.state.items}
-                  onDeleteItem={this.handleDeleteItem} />
+      <div>
+        <Header/>
+        <div className="container">
+          <ListCreate handleTextChange={this.handleTextChange}
+                      value={this.state.text}
+                      handleAddItem={this.handleAddItem}
+                      disabled={!this.state.text}
+                      itemsLength={this.state.items.length + 1}
+          />
+          <TodoList items={this.state.items}
+                    onDeleteItem={this.handleDeleteItem} />
+        </div>
       </div>
     );
   }
