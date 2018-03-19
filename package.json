@@ -16,6 +16,7 @@
     "colors": "1.1.2",
     "compression": "^1.6.1",
     "express": "4.13.4",
+    "jss-global": "^3.0.0",
     "open": "0.0.5",
     "prop-types": "^15.6.0",
     "react": "^16.2.0",

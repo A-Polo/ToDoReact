@@ -1,68 +1,52 @@
 import React from 'react';
-import ListCreate from './ListCreate';
-import TodoList from './TodoList';
+import injectSheet, {ThemeProvider} from 'react-jss';
+import theme from '../theme/theme';
+import ToDo from './ToDo/ToDo';
 import Header from './Header/Header';
 
-class App extends React.Component {
-  constructor(props) {
-    super(props);
+const styles = (theme) => ({
+  '@global': {
+    '*': {
+      'margin': 0,
+      'padding': 0
+    }
+  },
 
-    this.state = {
-      items:[],
-      text: ''
-    };
+  app: {
+    background: 'rgba(196,196,196,0.1)',
+    display: theme.flex,
+    flexDirection: theme.direction,
+    height: 100 +'vh'
+  },
 
-    this.handleTextChange = this.handleTextChange.bind(this);
-    this.handleAddItem = this.handleAddItem.bind(this);
-    this.handleDeleteItem = this.handleDeleteItem.bind(this);
+  title: {
+    font: {
+      size: 25,
+      color: theme.titleColor
+    }
+  },
+
+  button: {
+    background: theme.buttonColor,
+    boxSizing: 'border-box',
+    '&:hover': {
+      fontWeight: 800,
+      color: theme.hoverColor
+    }
   }
+});
 
-  handleTextChange(event) {
-    this.setState({
-      text: event.target.value
-    });
-  }
+const App = ({classes}) => (
+  <div className={classes.app}>
+    <Header/>
+    <ToDo/>
+  </div>
+);
 
-  handleAddItem(event) {
-    event.preventDefault();
+const StyleComp = injectSheet(styles)(App);
 
-    let newItem = {
-      id: Date.now(),
-      text: this.state.text,
-      done: false
-    };
-
-    this.setState((prevState) => ({
-      items: prevState.items.concat(newItem),
-      text: ''
-    }));
-  }
-
-  handleDeleteItem(itemId) {
-    let updatedItems = this.state.items.filter(item => {
-      return item.id !== itemId;
-    });
-
-    this.setState({items: [].concat(updatedItems)});
-  }
-
-  render() {
-    return (
-      <div>
-        <Header/>
-        <div className="container">
-          <ListCreate handleTextChange={this.handleTextChange}
-                      value={this.state.text}
-                      handleAddItem={this.handleAddItem}
-                      disabled={!this.state.text}
-                      itemsLength={this.state.items.length + 1}
-          />
-          <TodoList items={this.state.items}
-                    onDeleteItem={this.handleDeleteItem} />
-        </div>
-      </div>
-    );
-  }
-}
-
-export default App;
+export default () => (
+  <ThemeProvider theme={theme}>
+    <StyleComp/>
+  </ThemeProvider>
+)
