@@ -1,8 +1,8 @@
 import React from 'react';
 import injectSheet, {ThemeProvider} from 'react-jss';
-import theme from '../theme/theme';
-import ToDo from './ToDo/ToDo';
-import Header from './Header/Header';
+import theme from '../../theme/theme';
+import ToDo from '../ToDo/ToDo';
+import Header from '../Header/Header';
 
 const styles = (theme) => ({
   '@global': {
