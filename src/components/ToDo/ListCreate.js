@@ -8,12 +8,10 @@ const ListCreate = ({handleTextChange, handleAddItem, value}) => (
   </div>
 );
 
+export default ListCreate;
+
 ListCreate.propTypes = {
   handleTextChange: PropTypes.func.isRequired,
   handleAddItem: PropTypes.func.isRequired,
   value: PropTypes.string.isRequired
 };
-
-export default ListCreate;
-
-

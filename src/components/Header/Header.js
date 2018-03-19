@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import injectSheet from 'react-jss';
 import styles from './styles';
 
@@ -9,3 +10,7 @@ const Header = ({ classes }) => (
 );
 
 export default injectSheet(styles)(Header);
+
+Header.propTypes = {
+  classes: PropTypes.object.isRequired
+};

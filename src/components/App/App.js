@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import injectSheet, {ThemeProvider} from 'react-jss';
 import theme from '../../theme/theme';
 import ToDo from '../ToDo/ToDo';
@@ -36,10 +37,10 @@ const styles = (theme) => ({
   }
 });
 
-const App = ({classes}) => (
+const App = ({ classes }) => (
   <div className={classes.app}>
-    <Header/>
-    <ToDo/>
+    <Header />
+    <ToDo />
   </div>
 );
 
@@ -49,4 +50,8 @@ export default () => (
   <ThemeProvider theme={theme}>
     <StyleComp/>
   </ThemeProvider>
-)
+);
+
+App.propTypes = {
+  classes: PropTypes.object.isRequired
+};

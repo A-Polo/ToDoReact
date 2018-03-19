@@ -5,4 +5,4 @@ export default {
     padding: [0, 20],
     lineHeight: 50 + 'px'
   }
-}
+};
