@@ -18,22 +18,6 @@ const styles = (theme) => ({
     display: theme.flex,
     flexDirection: theme.direction,
     height: 100 +'vh'
-  },
-
-  title: {
-    font: {
-      size: 25,
-      color: theme.titleColor
-    }
-  },
-
-  button: {
-    background: theme.buttonColor,
-    boxSizing: 'border-box',
-    '&:hover': {
-      fontWeight: 800,
-      color: theme.hoverColor
-    }
   }
 });
 

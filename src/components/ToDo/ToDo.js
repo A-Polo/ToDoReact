@@ -1,7 +1,9 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import ListCreate from './ListCreate';
 import TodoList from './TodoList';
-
+import injectSheet from 'react-jss';
+import styles from './styles/styles';
 
 class ToDo extends React.Component {
   constructor(props) {
@@ -47,9 +49,11 @@ class ToDo extends React.Component {
   }
 
   render() {
+    const classes  = this.props.classes;
+
     return (
       <div>
-        <div className="container">
+        <div className={classes.container}>
           <ListCreate handleTextChange={this.handleTextChange}
                       value={this.state.text}
                       handleAddItem={this.handleAddItem}
@@ -64,4 +68,8 @@ class ToDo extends React.Component {
   }
 }
 
-export default ToDo;
+export default injectSheet(styles)(ToDo);
+
+ToDo.propTypes = {
+  classes: PropTypes.object.isRequired
+};
