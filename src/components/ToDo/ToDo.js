@@ -68,8 +68,8 @@ class ToDo extends React.Component {
   }
 }
 
-export default injectSheet(styles)(ToDo);
-
 ToDo.propTypes = {
   classes: PropTypes.object.isRequired
 };
+
+export default injectSheet(styles)(ToDo);

@@ -9,8 +9,8 @@ const Header = ({ classes }) => (
   </header>
 );
 
-export default injectSheet(styles)(Header);
-
 Header.propTypes = {
   classes: PropTypes.object.isRequired
 };
+
+export default injectSheet(styles)(Header);

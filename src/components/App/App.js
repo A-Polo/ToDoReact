@@ -30,12 +30,12 @@ const App = ({ classes }) => (
 
 const StyleComp = injectSheet(styles)(App);
 
+App.propTypes = {
+  classes: PropTypes.object.isRequired
+};
+
 export default () => (
   <ThemeProvider theme={theme}>
     <StyleComp/>
   </ThemeProvider>
 );
-
-App.propTypes = {
-  classes: PropTypes.object.isRequired
-};
