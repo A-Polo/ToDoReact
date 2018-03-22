@@ -1,9 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import injectSheet from 'react-jss';
 import TodoItem from './TodoItem';
+import styles from './styles/styles';
 
-const TodoList = ({ onDeleteItem, items }) => (
-  <ul className="todolist">
+const TodoList = ({ onDeleteItem, items, classes }) => (
+  <ul className={classes.todoList}>
     {items.map(item => (
       <TodoItem key={item.id}
                 itemId={item.id}
@@ -16,7 +18,7 @@ const TodoList = ({ onDeleteItem, items }) => (
 
 TodoList.propTypes = {
   onDeleteItem: PropTypes.func.isRequired,
-  items: PropTypes.array.isRequired
+  items: PropTypes.array.isRequired,
+  classes: PropTypes.object.isRequired
 };
-
-export default TodoList;
+export default injectSheet(styles)(TodoList);

@@ -54,14 +54,16 @@ class ToDo extends React.Component {
     return (
       <div>
         <div className={classes.container}>
-          <ListCreate handleTextChange={this.handleTextChange}
-                      value={this.state.text}
-                      handleAddItem={this.handleAddItem}
-                      disabled={!this.state.text}
-                      itemsLength={this.state.items.length + 1}
-          />
-          <TodoList items={this.state.items}
-                    onDeleteItem={this.handleDeleteItem} />
+          <div className={classes.content}>
+            <ListCreate handleTextChange={this.handleTextChange}
+                        value={this.state.text}
+                        handleAddItem={this.handleAddItem}
+                        disabled={!this.state.text}
+                        itemsLength={this.state.items.length + 1}
+            />
+            <TodoList items={this.state.items}
+                      onDeleteItem={this.handleDeleteItem} />
+          </div>
         </div>
       </div>
     );

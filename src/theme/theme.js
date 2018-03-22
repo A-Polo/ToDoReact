@@ -6,7 +6,8 @@ const theme = {
   titleColor:  '#c4c4c4',
   hoverColor: '#7F84C4',
   flex: 'flex',
-  direction: 'column'
+  direction: 'column',
+  baseSpace: 15
 };
 
 export default theme;
