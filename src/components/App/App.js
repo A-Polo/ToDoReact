@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import injectSheet, {ThemeProvider} from 'react-jss';
 import theme from '../../theme/theme';
-import ToDo from '../ToDo/ToDo';
+import ToDoContainer from '../ToDo/ToDoContainer';
 import Header from '../Header/Header';
 
 const styles = (theme) => ({
@@ -24,7 +24,7 @@ const styles = (theme) => ({
 const App = ({ classes }) => (
   <div className={classes.app}>
     <Header />
-    <ToDo />
+    <ToDoContainer />
   </div>
 );
 

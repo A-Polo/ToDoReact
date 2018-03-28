@@ -1,9 +1,21 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { inject, observer } from 'mobx-react';
+import { compose, withProps } from 'recompose';
 import ListCreate from './ListCreate';
 import TodoList from './TodoList';
 import injectSheet from 'react-jss';
 import styles from './styles/styles';
+
+const enhance = compose(
+  inject('store'),
+  withProps(
+    ({store: { toDoStore }}) => ({
+      toDoStore: toDoStore
+    })
+  ),
+  observer
+);
 
 class ToDo extends React.Component {
   constructor(props) {
@@ -74,4 +86,4 @@ ToDo.propTypes = {
   classes: PropTypes.object.isRequired
 };
 
-export default injectSheet(styles)(ToDo);
+export default injectSheet(styles)(enhance(ToDo));
